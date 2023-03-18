@@ -1,0 +1,31 @@
+﻿<Window x:Class="DataGrid.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dataGrid2D="http://gu.se/DataGrid2D"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+ 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Height="60" Orientation="Horizontal">
+            <GroupBox Height="45" Header="Строки">
+                <TextBox TextChanged="TBRow_TextChanged" x:Name="TBRow" Height="40"></TextBox>
+            </GroupBox>
+            <GroupBox Height="45" Header="Столбцы">
+                <TextBox TextChanged="TBColumn_TextChanged_1" x:Name="TBColumn"  Height="40"></TextBox>
+            </GroupBox>
+            <Button Name="btnSaveButton" Content="Save Massiv" Margin="10" Click="btnSaveButton_Click"/>
+        </StackPanel>
+        <Grid  Grid.Row="1">
+            <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding Matrix}" Height="250"
+                  HeadersVisibility="None"  RowHeaderWidth="0"
+                  CanUserAddRows="False" CanUserDeleteRows="False"
+                      Name="dataGrid"/> 
+        </Grid>
+    </Grid>
+</Window>
